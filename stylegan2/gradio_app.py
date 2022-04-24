@@ -11,7 +11,6 @@ import gradio
 
 torch.set_grad_enabled(False)
 
-
 class Sampler:
     def __init__(self, args):
         
@@ -60,7 +59,8 @@ class Sampler:
                     get_intermediate_layers=True)
             
             target_img, _ = self.g2(
-                    [self.latent + self.directions@self.degrees],
+                    # [self.latent + self.directions@self.degrees],
+                    [self.latent +torch.mm(self.directions,self.degrees)],
                     truncation=self.truncation,
                     truncation_latent=self.trunc,
                     input_is_latent=True,
