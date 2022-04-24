@@ -6,9 +6,16 @@ Inspired by the training footage of [FreezeD](https://github.com/sangwoomo/Freez
 
 ### Instructions for David
 
-1. Download checkpoint here  
+1. Download pretrained FFHQ model [here](https://drive.google.com/file/d/1PQutd-JboOCOZqmd95XWxWrO8gGEvRcO/view)
 2. Prepare dataset
-3. Run train 
+    1) Select about 1500 images from cropped images of simpsons dataset 
+    2) mkdir simpsons/0/ 
+    3) Put images under simpsons/0/ 
+    4) python prepare_data.py --out LMDB_PATH simpsons
+4. Run train 
+    ```
+    python train.py --finetune_loc 3 --ckpt [PATH_TO_PRETRAINED_FFHQ_MODEL] LMDB_PATH
+    ```
 
 ### Cat2Wild [AFHQ]
 <img src="./imgs/cat2wild/3.gif" width="320"> &nbsp; <img src="./imgs/cat2wild/1.gif" width="320"> &nbsp;\
